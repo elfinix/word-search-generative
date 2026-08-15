@@ -1,56 +1,52 @@
-# PokéSearch — Generative Pokémon Word Search
-
-A responsive, dynamic Pokémon Word Search web application built with **FastAPI**, **SQLite**, and **ReactJS**. Designed using enterprise frontend principles (SRP, Custom Hooks, Context API, Service Abstraction Layer).
-
----
-
-## 🏗️ Project Structure
-
-```
-word-search-generative/
-├── backend/
-│   ├── venv/           # Python Virtual Environment
-│   ├── database.py     # SQLite Database setup
-│   ├── models.py       # SQLAlchemy ORM schemas (Pokemon, Score, GameStat)
-│   ├── schemas.py      # Pydantic request/response schemas
-│   ├── generator.py    # 8-Directional word matrix generator
-│   ├── seed_data.py    # Database initial seed script
-│   ├── main.py         # FastAPI application & REST endpoints
-│   └── requirements.txt# Backend dependencies
-└── frontend/
-    ├── src/
-    │   ├── services/   # Network & API Service Layer
-    │   ├── context/    # Theme & Game Context Providers
-    │   ├── hooks/      # Custom Utility Hooks (useTimer, useToast)
-    │   ├── pages/      # LandingPage & PlayPage assemblies
-    │   └── components/ # UI Components
-    └── package.json
-```
+<div align="center">
+  <h1>🔍 PokéSearch: Generative AI Word Search</h1>
+  <p><strong>A dynamic, AI-powered Pokémon word search game built with React, FastAPI, Google Gemini, and Supabase.</strong></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini" />
+    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  </p>
+</div>
 
 ---
 
-## 📌 API Documentation (Swagger & ReDoc)
+## ✨ Overview
 
-When the FastAPI server is running (`http://127.0.0.1:8000`):
+**PokéSearch** is not your standard static word search game. It leverages the power of **Google Gemini** to generate custom, on-the-fly puzzle categories based on any prompt you can imagine! Want a puzzle featuring only "Fire and Dragon legends"? Or "Cute pink Generation 1 Pokémon"? The LLM generates the targeted Pokémon list, and our custom Python engine builds a highly-dense 8-directional word matrix instantly.
 
-- **Swagger UI Interactive Docs**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **ReDoc API Documentation**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
-- **OpenAPI JSON Schema**: [http://127.0.0.1:8000/openapi.json](http://127.0.0.1:8000/openapi.json)
+## 🚀 Key Features
+
+- **🧠 Generative AI Puzzles:** Enter any prompt and watch the Google Gemini LLM curate a custom list of Pokémon for your puzzle.
+- **⚙️ Dynamic Matrix Generation:** A custom Python backend engine that generates dense 10x10 (Easy), 12x12 (Medium), or 15x15 (Hard) matrices with 8-directional word placement.
+- **🏆 Global Leaderboards:** Compete for the fastest times globally, securely backed by a **Supabase** PostgreSQL database with strict Row Level Security (RLS).
+- **💅 Premium UI/UX:** A stunning "Midnight Blue" glassmorphism interface built with React, featuring dynamic animations, interactive highlights, and a gorgeous responsive layout.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 18, Vite, Context API, Custom Hooks, Vanilla CSS (Glassmorphism design system).
+- **Backend:** Python 3.10+, FastAPI, Pydantic.
+- **AI & Data Sources:** Google Gemini LLM API, PokéAPI.
+- **Database:** Supabase (PostgreSQL).
+
+## 📚 Documentation & Guides
+
+To keep this README clean, detailed setup and deployment instructions have been moved to dedicated documentation files:
+
+- **[🖥️ Local Development Guide](others/LOCAL.md)**: Instructions for spinning up the FastAPI server, React frontend, and managing your Python virtual environment.
+- **[🚀 Vercel Deployment Guide](others/VERCEL_GUIDE.md)**: A complete walkthrough on how to deploy this monorepo to Vercel via Serverless Functions, including Supabase SQL table initialization.
+
+## 🎮 How to Play
+
+1. Click **Play Game** from the Hero Page.
+2. Click the **AI Prompt** button (✨) and type a prompt (e.g., *"Heavy Gen 3 Pokémon"*), or use one of the popular presets.
+3. Select your **Difficulty** (Easy, Medium, Hard).
+4. Find all the Pokémon hidden in the matrix (horizontal, vertical, diagonal, and backwards).
+5. Submit your time to the **Global Supabase Leaderboard**!
 
 ---
 
-## 🚀 Local Quickstart
-
-### 1. Start Backend (FastAPI with Virtual Environment)
-```powershell
-cd backend
-# Activate venv & run server
-.\venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-```
-
-### 2. Start Frontend (ReactJS + Vite)
-```powershell
-cd frontend
-powershell -ExecutionPolicy Bypass -Command "npm run dev"
-```
-App will run at `http://localhost:5173`.
+<div align="center">
+  <i>Built with ❤️ for Pokémon fans and Generative AI enthusiasts.</i>
+</div>
