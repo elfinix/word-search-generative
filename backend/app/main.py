@@ -16,6 +16,9 @@ app = FastAPI(
     title="PokéSearch Generative API",
     description="Generative Pokémon Word Search API powered by Online LLMs and Supabase",
     version="2.0.0",
+    docs_url="/api/docs",
+    openapi_url="/api/openapi.json",
+    redoc_url="/api/redoc"
 )
 
 app.add_middleware(
