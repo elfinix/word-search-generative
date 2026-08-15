@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Midnight Blue Design System & Global Styles
+   ========================================================================== */
+
+:root {
+  /* Common Palette */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Light Theme Defaults */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  
+  --text-primary: #0f172a; /* Midnight Blue Text */
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --accent-primary: #3b82f6; /* Electric Blue */
+  --accent-primary-hover: #2563eb;
+  --accent-secondary: #6366f1; /* Indigo */
+  --accent-glow: rgba(59, 130, 246, 0.25);
+
+  --border-color: #e2e8f0;
+  --border-glass: rgba(226, 232, 240, 0.6);
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.12);
+
+  --grid-bg: #ffffff;
+  --grid-cell-bg: #f8fafc;
+  --grid-cell-hover: #e0f2fe;
+  --grid-cell-selected: #3b82f6;
+  --grid-cell-text: #0f172a;
+  --grid-cell-text-selected: #ffffff;
+
+  --badge-electric: #eab308;
+  --badge-fire: #ef4444;
+  --badge-water: #06b6d4;
+  --badge-grass: #22c55e;
+  --badge-psychic: #ec4899;
+  --badge-ghost: #8b5cf6;
+  --badge-dragon: #6366f1;
+  --badge-fairy: #f472b6;
+  --badge-normal: #94a3b8;
+  --badge-ground: #d97706;
+  --badge-rock: #b45309;
+}
+
+[data-theme="dark"] {
+  /* Midnight Blue Dark Theme */
+  --bg-primary: #0b1329; /* Rich Midnight Blue */
+  --bg-secondary: #111c38;
+  --bg-card: #172445;
+  --bg-card-hover: #1e2e57;
+  --bg-glass: rgba(23, 36, 69, 0.75);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent-primary: #60a5fa;
+  --accent-primary-hover: #3b82f6;
+  --accent-secondary: #818cf8;
+  --accent-glow: rgba(96, 165, 250, 0.3);
+
+  --border-color: #263863;
+  --border-glass: rgba(38, 56, 99, 0.6);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+
+  --grid-bg: #131f3e;
+  --grid-cell-bg: #1a2a52;
+  --grid-cell-hover: #2d437a;
+  --grid-cell-selected: #3b82f6;
+  --grid-cell-text: #f8fafc;
+  --grid-cell-text-selected: #ffffff;
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Glassmorphic Container */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* Pulse animation */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-effect {
+  animation: floatAnim 4s ease-in-out infinite;
+}
+
+@keyframes spinAnim {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spinAnim 1s linear infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Type Pill Badges */
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.type-electric { background-color: var(--badge-electric); }
+.type-fire { background-color: var(--badge-fire); }
+.type-water { background-color: var(--badge-water); }
+.type-grass { background-color: var(--badge-grass); }
+.type-psychic { background-color: var(--badge-psychic); }
+.type-ghost { background-color: var(--badge-ghost); }
+.type-dragon { background-color: var(--badge-dragon); }
+.type-fairy { background-color: var(--badge-fairy); }
+.type-normal { background-color: var(--badge-normal); }
+.type-ground { background-color: var(--badge-ground); }
+.type-rock { background-color: var(--badge-rock); }
